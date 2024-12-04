@@ -999,21 +999,23 @@ listone = [(18102, 93258),
 (13117, 44089),
 (13363, 84471)]
 
-print("partone")
 l0 = [x[0] for x in listone]
 l1 = [x[1] for x in listone]
 l0.sort()
 l1.sort()
+
 def pos(x):
     return x*-1 if x<0 else x
+
+print("partone")
 print(sum([pos(x-y) for x,y in zip(l0, l1)]))
 
-print("parttwo")
-similarity_score = 0
+sim_score = 0
 for x in l0:
-    appereances = len([y for y in l1 if y==x])
-    similarity_score += x*appereances
+    appereances_x   = len([y for y in l1 if y==x])
+    sim_score       += x * appereances_x
 
-print(similarity_score)
+print("parttwo")
+print(sim_score)
     
     

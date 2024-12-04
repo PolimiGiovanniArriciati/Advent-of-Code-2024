@@ -999,35 +999,7 @@ reports=[[58,59,62,63,64,63],
 [75,76,77,78,80,83,84,86],
 [72,71,69,68,67,64]]
 
-good_reports = 0
-for report in reports:
-    op = (lambda x,y : x<y) if report[0] < report[1]  else (lambda x,y : x>y)
-    bad_report = False
-    if report[0] < report[1]:
-        # increasing
-        for i, r in enumerate(report[:-1]):
-            if r not in range(report[i+1]-3, report[i+1]) or r == report[i+1]:
-                bad_report = True
-                break
-    elif report[0] > report[1]:
-        # decreasing
-        for i, r in enumerate(report[:-1]):
-            if report[i+1] not in range(r-3, r) or r == report[i+1]:
-                bad_report = True
-                break
-    else:
-        bad_report = True
-
-    if not bad_report:
-        good_reports += 1
-    
-print("partone")
-print(good_reports)
-
-
-    
-
-def ok_report(report):
+def is_report_ok(report):
     if report[0] < report[1]:
         # increasing
         for i, r in enumerate(report[:-1]):
@@ -1040,16 +1012,22 @@ def ok_report(report):
                 return False
     else:
         return False
-    return True            
+    return True
 
 good_reports = 0
 for report in reports:
-    # op = (lambda x,y : x<y) if report[0] < report[1]  else (lambda x,y : x>y)
-    if ok_report(report):
+        good_reports += 1 if is_report_ok(report) else 0
+    
+print("partone")
+print(good_reports)
+
+good_reports = 0
+for report in reports:
+    if is_report_ok(report):
         good_reports += 1
     else:
         for i, r in enumerate(report):
-            if ok_report(report[:i]+report[i+1:]):
+            if is_report_ok(report[:i]+report[i+1:]):
                 good_reports+=1
                 break
 

@@ -9,6 +9,7 @@ where()do()from()-;>@~mul(206,700)mul(145,374)*what()who()#where(480,894)>/'why(
 
 import re
 
+# easy regex
 pattern = r"mul\([0-9]{1,3},[0-9]{1,3}\)"
 ops = re.findall(pattern, corrupted_memory)
 mul = lambda x,y : x*y
@@ -33,10 +34,11 @@ print(eval(eq_string))
 """
 
 eq_string = '+'.join(ops)
+# questo é brutto brutto
 splitted_eq = eq_string.split("+do")                            # splits both do and donts sengments
 splitted_eq = [eq for eq in splitted_eq if "mul" in eq]         # remove the ones that are not followed by a mul
 splitted_eq = [eq for eq in splitted_eq if "n't()+" not in eq]  # remove also the ones that are preceded by a dont
-splitted_eq = [eq.replace("()+","") for eq in splitted_eq]    
+splitted_eq = [eq.replace("()+","") for eq in splitted_eq]      # to complete the `do()` that I already started to cut in the `split` 
 
 print("pt. 2:")
 print(eval('+'.join(splitted_eq)))
