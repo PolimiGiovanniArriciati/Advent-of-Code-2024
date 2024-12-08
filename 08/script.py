@@ -32,11 +32,11 @@ print('\n'.join([''.join(line) for line in lines]))
 print(len(positions))
 
 positions = set()
-MAX = max(x_max, y_max)
 for c, pos in antennas_pos.items():
     for x, y in pos:
         for dx, dy in differences[(x,y)]:
-            for i in range(-MAX, MAX, 1):
+            MAX = max(x_max//dx, y_max//dy)
+            for i in range(-MAX, MAX+1, 1):
                 # for i = 0 antinodes are on the antennas
                 x_, y_ = x+dx*i, y+dy*i
                 if x_ in range(x_max) and y_ in range(y_max):
