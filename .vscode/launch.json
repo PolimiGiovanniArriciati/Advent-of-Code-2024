@@ -15,7 +15,7 @@
             ]
         },
         {
-            "name": "Python Debugger: day 09",
+            "name": "Python Debugger: aoc example",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
@@ -23,7 +23,7 @@
             "args": [
                 "1"
             ],
-            "cwd": "09"
+            "cwd": "${fileDirname}"
         },
     
     ]
