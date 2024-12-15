@@ -72,7 +72,7 @@ def count_corners(x, y, group):
     if len(adj)==1:
         return 2
     if len(adj)==2:
-        if adjactents_directions(x,y) in [{(1,0), (-1,0)}, {(0, 1), (0,-1)}]:
+        if adjactents_directions(x,y) in [{(1,0), (-1,0)}, {(0, 1), (0,-1)}]: # case [][][]
             return 0
         if len(angulars(x,y)) == 0:
             return 2

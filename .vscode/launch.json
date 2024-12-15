@@ -33,6 +33,17 @@
             ],
             "cwd": "${fileDirname}"
         },
+        {
+            "name": "Python Debugger: aoc puzzle",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "0"
+            ],
+            "cwd": "${fileDirname}"
+        },
     
     ]
 }
